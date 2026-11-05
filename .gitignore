@@ -16,3 +16,6 @@ Desktop.ini
 # Temporary and log files
 *.log
 scratch/
+
+# Obsidian local config
+.obsidian/
