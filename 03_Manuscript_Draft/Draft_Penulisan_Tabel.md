@@ -1,7 +1,7 @@
 ---
 title: Bab Landasan Teori - Sub-bab Penulisan Tabel (Integrasi AHP-WP)
 created: 2026-11-05
-updated: 2026-11-06
+updated: 2026-11-10
 status: Ready for Manuscript
 target_journal: Template UIN SUSKA (Jurnal Ilmiah Rekayasa dan Manajemen Sistem Informasi)
 format: Markdown
@@ -16,14 +16,17 @@ tags:
 
 ## 2. Penulisan Tabel
 
+> [!NOTE]
+> **Catatan Strukturasi Manuskrip:** Sub-bab ini disusun untuk memenuhi petunjuk pengujian format penulisan tabel pada template jurnal RMSI. Pada perakitan naskah publikasi utuh, Tabel 1 dan Tabel 2 dapat dialokasikan ke Bab Metode Penelitian, sedangkan Tabel 3 dan Tabel 4 dialokasikan ke Bab Hasil dan Pembahasan sebagai data komputasi empiris.
+
 Penyajian data numerik dan tahapan komputasi dalam model hibrida *Analytic Hierarchy Process* (AHP) dan *Weighted Product* (WP) disusun secara sistematis ke dalam bentuk tabel terstruktur. Berdasarkan ketentuan template penulisan jurnal ilmiah, judul tabel ditempatkan di bagian atas tabel pada posisi rata kiri (*left alignment*) dengan ukuran huruf 10 pt dalam format *Title Case*, sedangkan isi sel tabel menggunakan ukuran huruf 8 pt. Tata letak tabel menerapkan format standar ilmiah yang hanya memanfaatkan garis pembatas horizontal tanpa menggunakan garis vertikal. Setiap tabel dirujuk secara berurutan di dalam teks naskah.
 
 ### 2.1. Matriks Perbandingan Berpasangan Kriteria AHP
 
 Tahap awal permodelan keputusan dimulai dari penentuan preferensi pengambil keputusan terhadap kepentingan relatif kriteria pemilihan lokasi toko emas. Evaluasi dilakukan terhadap enam kriteria spasial dan operasional, yaitu biaya beban properti ($C_1$), keamanan eksternal kawasan ($C_2$), potensi daya beli lingkungan ($C_3$), visibilitas lokasi ($C_4$), fleksibilitas perombakan struktur bangunan ($C_5$), dan aglomerasi sentra emas ($C_6$). Penilaian preferensi antar kriteria dikuantifikasi menggunakan skala fundamental Saaty (skala 1 hingga 9). Rekapitulasi matriks perbandingan berpasangan kriteria disajikan pada Tabel 1.
 
-Tabel 1. Matriks Perbandingan Berpasangan Kriteria Pembobotan AHP
-*(Catatan teknis: Judul tabel 10 pt, teks isi tabel 8 pt, layout garis horizontal tanpa garis vertikal)*
+Tabel 1. Matriks Perbandingan Berpasangan Kriteria Pembobotan AHP  
+*(Format cetak: Judul 10 pt, isi sel 8 pt, layout garis horizontal tanpa garis vertikal)*
 
 | Kriteria | $C_1$ (Biaya) | $C_2$ (Keamanan) | $C_3$ (Daya Beli) | $C_4$ (Visibilitas) | $C_5$ (Struktur) | $C_6$ (Aglomerasi) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -41,8 +44,8 @@ Sebagaimana disajikan pada Tabel 1, setiap elemen diagonal utama memiliki nilai 
 
 Normalisasi matriks perbandingan berpasangan dilakukan dengan membagi setiap elemen sel dengan total kolom yang bersangkutan, kemudian menghitung nilai rata-rata dari setiap baris sesuai formulasi Persamaan (1). Proses komputasi ini menghasilkan vektor bobot prioritas kriteria (*Eigen Vector*). Untuk memverifikasi keabsahan logika penilai dan memastikan tidak terdapat kontradiksi preferensi yang melebihi batas acak, dilakukan perhitungan nilai eigen maksimum ($\lambda_{\max}$), indeks konsistensi (*Consistency Index* atau $CI$), dan rasio konsistensi (*Consistency Ratio* atau $CR$) berdasarkan formulasi Persamaan (2a) dan Persamaan (2b). Hasil pembobotan prioritas dan evaluasi konsistensi dirangkum pada Tabel 2.
 
-Tabel 2. Hasil Pembobotan Prioritas Kriteria dan Parameter Evaluasi Konsistensi
-*(Catatan teknis: Judul tabel 10 pt, teks isi tabel 8 pt, layout garis horizontal tanpa garis vertikal)*
+Tabel 2. Hasil Pembobotan Prioritas Kriteria dan Parameter Evaluasi Konsistensi  
+*(Format cetak: Judul 10 pt, isi sel 8 pt, layout garis horizontal tanpa garis vertikal)*
 
 | Kode Kriteria | Deskripsi Kriteria Evaluasi | Nilai Eigen Vector ($w_j$) | Persentase Bobot | Peringkat Prioritas |
 | :--- | :--- | :---: | :---: | :---: |
@@ -66,8 +69,8 @@ Berdasarkan komputasi pada Tabel 2, kriteria potensi daya beli lingkungan ($C_3$
 
 Tahap evaluasi alternatif kandidat lokasi diselesaikan menggunakan metode Weighted Product guna mengamankan stabilitas urutan keputusan dari anomali pembalikan peringkat (*rank reversal*). Sebanyak lima kandidat lokasi di wilayah Daerah Istimewa Yogyakarta dinilai berdasarkan keenam kriteria yang telah dibobotkan, yaitu Sinduadi ($A_1$), Jl. Magelang ($A_2$), Babarsari ($A_3$), Taman Siswa ($A_4$), dan Malioboro Mall ($A_5$). Data kinerja masing-masing kandidat lokasi dihimpun dalam bentuk nilai riil (*crisp data*) dan diklasifikasikan ke dalam atribut biaya (*cost*) serta atribut keuntungan (*benefit*). Struktur data profil lokasi disajikan pada Tabel 3.
 
-Tabel 3. Matriks Keputusan Alternatif Lokasi Ritel Perhiasan Emas
-*(Catatan teknis: Judul tabel 10 pt, teks isi tabel 8 pt, layout garis horizontal tanpa garis vertikal)*
+Tabel 3. Matriks Keputusan Alternatif Lokasi Ritel Perhiasan Emas  
+*(Format cetak: Judul 10 pt, isi sel 8 pt, layout garis horizontal tanpa garis vertikal)*
 
 | Kode | Nama Alternatif Lokasi | $C_1$ (Cost)<br>Biaya Sewa (Juta Rp) | $C_2$ (Benefit)<br>Keamanan (1-5) | $C_3$ (Benefit)<br>Daya Beli (1-5) | $C_4$ (Benefit)<br>Visibilitas (1-5) | $C_5$ (Benefit)<br>Struktur (1-5) | $C_6$ (Benefit)<br>Aglomerasi (1-5) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -81,10 +84,10 @@ Data pada Tabel 3 bertindak sebagai matriks keputusan $X = [x_{ij}]_{5 \times 6}
 
 ### 2.4. Preferensi Komputasi dan Pemeringkatan Akhir Alternatif
 
-Komputasi pemeringkatan akhir diawali dengan menghitung nilai preferensi Vektor $S_i$ untuk setiap kandidat lokasi melalui formulasi Persamaan (3). Bobot kriteria $w_j$ yang diperoleh dari metode AHP diterapkan sebagai eksponen matematis, yaitu bernilai negatif untuk atribut biaya ($-w_1 = -0{,}1333$) dan bernilai positif untuk atribut keuntungan ($+w_2$ hingga $+w_6$). Nilai preferensi relatif Vektor $V_i$ kemudian dihitung dengan menormalisasi setiap nilai $S_i$ terhadap jumlah total Vektor $S$ seluruh alternatif berdasarkan formulasi Persamaan (4). Urutan peringkat akhir disusun berdasarkan nilai preferensi Vektor $V$ dari yang tertinggi hingga terendah sebagaimana disajikan pada Tabel 4.
+Komputasi pemeringkatan akhir diawali dengan menghitung nilai preferensi Vektor $S_i$ untuk setiap kandidat lokasi melalui formulasi Persamaan (3b). Bobot kriteria $w_j$ yang diperoleh dari metode AHP diterapkan sebagai eksponen matematis, yaitu bernilai negatif untuk atribut biaya ($-w_1 = -0{,}1333$) dan bernilai positif untuk atribut keuntungan ($+w_2$ hingga $+w_6$). Nilai preferensi relatif Vektor $V_i$ kemudian dihitung dengan menormalisasi setiap nilai $S_i$ terhadap jumlah total Vektor $S$ seluruh alternatif berdasarkan formulasi Persamaan (4). Urutan peringkat akhir disusun berdasarkan nilai preferensi Vektor $V$ dari yang tertinggi hingga terendah sebagaimana disajikan pada Tabel 4.
 
-Tabel 4. Hasil Perhitungan Preferensi Vektor S, Vektor V, dan Pemeringkatan Akhir
-*(Catatan teknis: Judul tabel 10 pt, teks isi tabel 8 pt, layout garis horizontal tanpa garis vertikal)*
+Tabel 4. Hasil Perhitungan Preferensi Vektor S, Vektor V, dan Pemeringkatan Akhir  
+*(Format cetak: Judul 10 pt, isi sel 8 pt, layout garis horizontal tanpa garis vertikal)*
 
 | Peringkat | Kode | Nama Alternatif Lokasi | Nilai Vektor $S$ | Nilai Vektor $V$ | Persentase Preferensi | Rekomendasi Keputusan |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |

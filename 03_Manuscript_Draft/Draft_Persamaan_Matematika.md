@@ -1,6 +1,7 @@
 ---
 title: Bab Landasan Teori - Sub-bab Persamaan Matematika (Integrasi AHP-WP)
 created: 2026-11-05
+updated: 2026-11-10
 status: Ready for Manuscript
 target_journal: Template UIN SUSKA (Jurnal Ilmiah Rekayasa dan Manajemen Sistem Informasi)
 format: LaTeX / Markdown
@@ -35,22 +36,22 @@ $$
 di mana $x_{ij}$ menyatakan nilai kinerja alternatif ke-$i$ pada kriteria ke-$j$. Sistem komputasi bertujuan menemukan solusi kompromi terbaik (*compromise solution*) yang memenuhi prinsip non-dominasi Pareto.
 
 ### 1.2. Teori Ekonomi Tata Ruang & Karakteristik Ritel Toko Emas
-Penentuan lokasi gerai ritel perhiasan berakar pada teori ekonomi tata ruang (*spatial retail economics*). Berdasarkan *Central Place Theory* (Christaller), komoditas emas tergolong barang berorde tinggi (*high-order goods*) dengan nilai transaksi per unit yang besar dan frekuensi transaksi terencana, sehingga menuntut ambang batas populasi (*population threshold*) dan jangkauan spasial (*spatial range*) yang luas. Di samping itu, teori aglomerasi ekonomi (Marshall) dan model diferensiasi spasial (Hotelling) membuktikan bahwa pemusatan gerai emas pada klaster niaga sejenis secara empiris menurunkan biaya pencarian konsumen (*consumer search cost*) dan meningkatkan volume kunjungan terarah (*targeted footfall*).
+Penentuan lokasi gerai ritel perhiasan berakar pada teori ekonomi tata ruang (*spatial retail economics*). Berdasarkan *Central Place Theory* Christaller [7], komoditas emas tergolong barang berorde tinggi (*high-order goods*) dengan nilai transaksi per unit yang besar dan frekuensi transaksi terencana, sehingga menuntut ambang batas populasi (*population threshold*) dan jangkauan spasial (*spatial range*) yang luas. Di samping itu, teori aglomerasi ekonomi Marshall [8] dan model diferensiasi spasial Hotelling [9] membuktikan bahwa pemusatan gerai emas pada klaster niaga sejenis secara empiris menurunkan biaya pencarian konsumen (*consumer search cost*) dan meningkatkan volume kunjungan terarah (*targeted footfall*).
 
 Secara operasional, toko emas memiliki karakteristik unik:
 1. **Rasio Nilai terhadap Volume yang Ekstrem (*High Value-to-Volume Density*)**: Konsentrasi nilai kapital inventori yang sangat tinggi menimbulkan kerentanan terhadap kejahatan kekerasan, sehingga menuntut jaminan atribut keamanan eksternal yang ketat serta visibilitas lokasi guna mendukung pengawasan visual alami (*natural surveillance*).
 2. **Kebutuhan Adaptasi Struktur Bangunan**: Operasional fisik memerlukan instalasi brankas baja tahan api dengan bobot tonase berat dan partisi pengaman khusus, yang mewajibkan keleluasaan izin modifikasi struktur properti.
 
-Oleh karena itu, penentuan lokasi toko emas mengharuskan keseimbangan komputasi antara atribut biaya (*cost*)—yakni beban harga sewa properti tahunan—dengan atribut keuntungan (*benefit*) yang meliputi keamanan kawasan, potensi daya beli lingkungan, visibilitas ruang, fleksibilitas perombakan struktur bangunan, dan aglomerasi sentra niaga.
+Oleh karena itu, penentuan lokasi toko emas mengharuskan keseimbangan komputasi antara atribut biaya (*cost*), yakni beban harga sewa properti tahunan, dengan atribut keuntungan (*benefit*) yang meliputi keamanan kawasan, potensi daya beli lingkungan, visibilitas ruang, fleksibilitas perombakan struktur bangunan, dan aglomerasi sentra niaga.
 
 ---
 
 ### 1.3. Fase 1: Penentuan Bobot Kriteria Global & Uji Konsistensi (AHP)
 
-Metode AHP digunakan secara **eksklusif hanya untuk sintesis pembobotan kriteria**, tanpa menyertakan penilaian alternatif, guna mereduksi bias kognitif pengambil keputusan melalui struktur hierarki dan perbandingan berpasangan.
+Metode AHP digunakan secara **eksklusif hanya untuk sintesis pembobotan kriteria**, tanpa menyertakan penilaian alternatif, guna mereduksi bias kognitif pengambil keputusan melalui struktur hierarki dan perbandingan berpasangan [2].
 
 #### A. Matriks Perbandingan Berpasangan
-Pengambil keputusan atau pakar menyusun matriks perbandingan berpasangan $A = [a_{ik}]_{n \times n}$ berukuran $n \times n$, di mana $a_{ik}$ menyatakan derajat kepentingan relatif kriteria ke-$i$ terhadap kriteria ke-$k$ menurut skala fundamental Saaty (1–9). Matriks wajib memenuhi **Aksioma Resiprokal (*Reciprocal Axiom*)**:
+Pengambil keputusan atau pakar menyusun matriks perbandingan berpasangan $A = [a_{ik}]_{n \times n}$ berukuran $n \times n$, di mana $a_{ik}$ menyatakan derajat kepentingan relatif kriteria ke-$i$ terhadap kriteria ke-$k$ menurut skala fundamental Saaty (1–9). Matriks wajib memenuhi **Aksioma Resiprokal (*Reciprocal Axiom*)** [2]:
 
 $$
 a_{ki} = \frac{1}{a_{ik}} \quad \text{dan} \quad a_{ii} = 1 \quad \forall i, k \in \{1, 2, \dots, n\}
@@ -76,7 +77,7 @@ $$
 * $\sum_{i=1}^n a_{ik}$ : Jumlah total elemen pada kolom ke-$k$ dalam matriks perbandingan berpasangan.
 
 #### C. Persamaan 2: Evaluasi Rasio Konsistensi Logis Saaty (CI dan CR)
-Guna memastikan penilaian pakar bebas dari kontradiksi logis dan fluktuasi acak, dihitung nilai *Consistency Index* ($CI$) dan *Consistency Ratio* ($CR$):
+Guna memastikan penilaian pakar bebas dari kontradiksi logis dan fluktuasi acak, dihitung nilai *Consistency Index* ($CI$) dan *Consistency Ratio* ($CR$) [2]:
 
 $$
 CI = \frac{\lambda_{\max} - n}{n - 1}
@@ -97,7 +98,7 @@ $$
 
 | $n$ | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **$RI$** | 0{,}00 | 0{,}00 | 0{,}58 | 0{,}90 | 1{,}12 | 1{,}24 | 1{,}32 | 1{,}41 | 1{,}45 | 1{,}49 |
+| **$RI$** | 0,00 | 0,00 | 0,58 | 0,90 | 1,12 | 1,24 | 1,32 | 1,41 | 1,45 | 1,49 |
 
 * $CR$ : Rasio konsistensi matriks perbandingan. Matriks dinyatakan **valid dan konsisten** jika memenuhi kondisi batas ambang:
   $$ CR \le 0{,}10 \quad (10\%) $$
@@ -112,21 +113,23 @@ $$
 ### 1.4. Fase 2: Pemeringkatan Alternatif & Ketahanan Rank Reversal (Weighted Product)
 
 #### A. Celah Struktural AHP Murni: Anomali *Rank Reversal*
-Penerapan AHP murni hingga tahap pemeringkatan alternatif memiliki cacat struktural berupa kerentanan terhadap anomali *rank reversal*—kondisi di mana susunan peringkat preferensi antar-alternatif yang ada ($A_1 > A_2$) berbalik ($A_2 > A_1$) semata-mata akibat penambahan atau penghapusan alternatif baru yang tidak relevan. Kelemahan ini berakar dari skema normalisasi penjumlahan aditif berbasis jumlah kolom matriks lokal:
+Penerapan AHP murni hingga tahap pemeringkatan alternatif memiliki cacat struktural berupa kerentanan terhadap anomali *rank reversal*, yaitu kondisi di mana susunan peringkat preferensi antaralternatif yang ada ($A_1 > A_2$) berbalik ($A_2 > A_1$) semata-mata akibat penambahan atau penghapusan alternatif baru yang tidak relevan [3], [4]. Kelemahan ini berakar dari skema normalisasi penjumlahan aditif berbasis jumlah kolom matriks lokal:
 
 $$
 \bar{a}_{ik} = \frac{a_{ik}}{\sum_{i=1}^m a_{ik}}
 $$
 
-Penyebut $\sum_{i=1}^m a_{ik}$ berubah setiap kali alternatif baru masuk, sehingga mendistorsi rasio preferensi lokal dan melanggar aksioma *Independence of Irrelevant Alternatives* (IIA) Kenneth Arrow. Dalam investasi gerai toko emas berkapital tinggi, distorsi ini mendisrupsi kepastian alokasi modal.
+Penyebut $\sum_{i=1}^m a_{ik}$ berubah setiap kali alternatif baru masuk, sehingga mendistorsi rasio preferensi lokal dan melanggar aksioma *Independence of Irrelevant Alternatives* (IIA) Kenneth Arrow [10]. Dalam investasi gerai toko emas berkapital tinggi, distorsi ini mendisrupsi kepastian alokasi modal operasional.
 
 #### B. Persamaan 3: Normalisasi Pangkat Bobot & Perhitungan Vektor Preferensi ($S_i$)
-Metode Weighted Product (WP) dipilih menggantikan sintesis alternatif AHP karena menerapkan agregasi multiplikatif non-linear. Sebelum dioperasikan, bobot $w_j$ dari AHP dinormalisasi kembali agar total eksponen setara dengan 1:
+Metode Weighted Product (WP) dipilih menggantikan sintesis alternatif AHP karena menerapkan agregasi multiplikatif non-linear [5]. Sebelum dioperasikan, bobot $w_j$ dari AHP dinormalisasi kembali agar total eksponen setara dengan 1:
 
 $$
 W_j = \frac{w_j}{\sum_{k=1}^n w_k} \quad \text{sehingga} \quad \sum_{j=1}^n W_j = 1
 \tag{3a}
 $$
+
+Mengingat vektor bobot hasil komputasi AHP pada Persamaan (1) telah memenuhi kaidah normalisasi $\sum_{k=1}^n w_k = 1{,}0000$, maka nilai pangkat bobot $W_j$ secara numerik identik dengan bobot prioritas kriteria AHP ($W_j = w_j$).
 
 Nilai preferensi absolut setiap alternatif kandidat lokasi dihitung melalui formulasi **Vektor $S_i$**:
 
@@ -154,7 +157,7 @@ $$
 * Pada kriteria biaya (*cost*), pemangkatan negatif secara matematis ekuivalen dengan pembagian ($x_{ij}^{-W_j} = \frac{1}{x_{ij}^{W_j}}$), sehingga memperkecil nilai $S_i$ secara proporsional seiring membesarnya biaya sewa properti.
 
 #### C. Pembuktian Aljabar Ketahanan Terhadap Rank Reversal (Invariansi Rasio)
-Kekebalan metode WP terhadap anomali pembalikan peringkat dibuktikan melalui rasio perbandingan preferensi antara dua alternatif sebarang, $A_a$ dan $A_b$:
+Kekebalan metode WP terhadap anomali pembalikan peringkat dibuktikan melalui rasio perbandingan preferensi antara dua alternatif sebarang, $A_a$ dan $A_b$ [5], [6]:
 
 $$
 \frac{S_a}{S_b} = \frac{\prod_{j=1}^n \left( x_{aj} \right)^{W_j^*}}{\prod_{j=1}^n \left( x_{bj} \right)^{W_j^*}} = \prod_{j=1}^n \left( \frac{x_{aj}}{x_{bj}} \right)^{W_j^*}

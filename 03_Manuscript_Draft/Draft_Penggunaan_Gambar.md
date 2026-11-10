@@ -1,7 +1,7 @@
 ---
 title: Bab Landasan Teori - Sub-bab Penggunaan Gambar (Integrasi AHP-WP)
 created: 2026-11-05
-updated: 2026-11-06
+updated: 2026-11-10
 status: Ready for Manuscript
 target_journal: Template UIN SUSKA (Jurnal Ilmiah Rekayasa dan Manajemen Sistem Informasi)
 format: Markdown
@@ -15,6 +15,9 @@ tags:
 # LANDASAN TEORI
 
 ## 3. Penggunaan Gambar
+
+> [!NOTE]
+> **Catatan Strukturasi Manuskrip:** Sub-bab ini disusun untuk memenuhi petunjuk pengujian format penempatan gambar pada template jurnal RMSI. Pada perakitan naskah publikasi utuh, Gambar 1 dapat dipertahankan di Bab Landasan Teori, Gambar 2 dialokasikan ke Bab Metode Penelitian sebagai bagan alir algoritma riset, dan Gambar 3 dialokasikan ke Bab Hasil dan Pembahasan sebagai visualisasi temuan komputasi.
 
 Visualisasi grafis dalam penelitian ini digunakan untuk memperjelas dekomposisi masalah keputusan, alur komputasi algoritma hibrida, serta perbandingan preferensi hasil pemeringkatan akhir. Berdasarkan pedoman template penulisan jurnal ilmiah, setiap gambar disajikan dalam format monokromatis (hitam, putih, dan gradasi abu-abu) dengan pembeda garis atau arsiran yang kontras agar tetap terbaca jelas saat dicetak tanpa warna. Nomor dan judul gambar ditempatkan di bawah gambar pada posisi rata tengah (*center alignment*) dengan ukuran huruf 10 pt dalam format *Title Case*. Setiap gambar dipanggil terlebih dahulu di dalam teks paragraf sebelum ilustrasinya ditampilkan, disertai pemisah jarak satu baris kosong sebelum gambar dan sesudah judul gambar.
 
@@ -85,7 +88,7 @@ flowchart TD
     
     CutOff --> PangkatWP["5. Kalibrasi Pangkat Eksponensial Bobot WP:<br>-w_j untuk Atribut Cost (C1)<br>+w_j untuk Atribut Benefit (C2 - C6)"]:::process
     PangkatWP --> MatriksX["6. Penyusunan Matriks Keputusan Alternatif Lokasi (X)"]:::process
-    MatriksX --> VektorS["7. Perkalian Eksponensial: Komputasi Vektor Preferensi S_i Sesuai Persamaan (3)"]:::process
+    MatriksX --> VektorS["7. Perkalian Eksponensial: Komputasi Vektor Preferensi S_i Sesuai Persamaan (3b)"]:::process
     VektorS --> VektorV["8. Normalisasi Relatif: Komputasi Vektor Preferensi V_i Sesuai Persamaan (4)"]:::process
     VektorV --> Perankingan["9. Pemeringkatan Akhir Alternatif & Rekomendasi Lokasi Prioritas Utama"]:::process
     Perankingan --> Selesai([Selesai]):::startEnd
