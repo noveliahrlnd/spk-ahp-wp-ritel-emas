@@ -1,32 +1,15 @@
----
-title: Bab Landasan Teori - Sub-bab Penulisan Tabel (Integrasi AHP-WP)
-created: 2026-11-05
-updated: 2026-11-10
-status: Ready for Manuscript
-target_journal: Template UIN SUSKA (Jurnal Ilmiah Rekayasa dan Manajemen Sistem Informasi)
-format: Markdown
-tags:
-  - landasan-teori
-  - penulisan-tabel
-  - ahp-wp
-  - lokasi-ritel-emas
----
+# B. LANDASAN TEORI
 
-# LANDASAN TEORI
+## B.2. Penulisan Tabel
 
-## 2. Penulisan Tabel
+Penyajian data numerik dan tahapan komputasi pada model hibrida ini disusun secara sistematis ke dalam bentuk tabel yang terstruktur. Berdasarkan pedoman template penulisan jurnal ilmiah, judul tabel ditempatkan tepat di bagian atas tabel pada posisi rata kiri dengan ukuran huruf 10 pt dalam format Title Case, sedangkan isi sel tabel itu menggunakan ukuran huruf 8 pt. Tata letak tabel menerapkan format baku yang hanya memanfaatkan garis pembatas horizontal tanpa menggunakan garis vertikal. Setiap tabel dirujuk secara berurutan di dalam teks naskah untuk memandu pemahaman pembaca.
 
-> [!NOTE]
-> **Catatan Strukturasi Manuskrip:** Sub-bab ini disusun untuk memenuhi petunjuk pengujian format penulisan tabel pada template jurnal RMSI. Pada perakitan naskah publikasi utuh, Tabel 1 dan Tabel 2 dapat dialokasikan ke Bab Metode Penelitian, sedangkan Tabel 3 dan Tabel 4 dialokasikan ke Bab Hasil dan Pembahasan sebagai data komputasi empiris.
+### B.2.1. Matriks Perbandingan Berpasangan Kriteria AHP
 
-Penyajian data numerik dan tahapan komputasi dalam model hibrida *Analytic Hierarchy Process* (AHP) dan *Weighted Product* (WP) disusun secara sistematis ke dalam bentuk tabel terstruktur. Berdasarkan ketentuan template penulisan jurnal ilmiah, judul tabel ditempatkan di bagian atas tabel pada posisi rata kiri (*left alignment*) dengan ukuran huruf 10 pt dalam format *Title Case*, sedangkan isi sel tabel menggunakan ukuran huruf 8 pt. Tata letak tabel menerapkan format standar ilmiah yang hanya memanfaatkan garis pembatas horizontal tanpa menggunakan garis vertikal. Setiap tabel dirujuk secara berurutan di dalam teks naskah.
+Pemodelan keputusan diawali dengan pengisian matriks perbandingan berpasangan untuk menentukan tingkat kepentingan relatif dari enam kriteria evaluasi yang dianalisis dalam penelitian ini. Kriteria tersebut mencakup biaya beban properti ($C_1$), keamanan eksternal kawasan ($C_2$), potensi daya beli lingkungan ($C_3$), visibilitas lokasi ($C_4$), fleksibilitas perombakan struktur bangunan ($C_5$), serta aglomerasi sentra niaga emas ($C_6$). Setiap pasang parameter dikuantifikasi menggunakan skala fundamental Saaty yang bernilai antara 1 hingga 9. Rekapitulasi matriks perbandingan berpasangan tersebut disajikan pada Tabel 1.
 
-### 2.1. Matriks Perbandingan Berpasangan Kriteria AHP
-
-Pemodelan keputusan diawali dengan pengisian matriks perbandingan berpasangan untuk menentukan kepentingan relatif enam kriteria spasial dan operasional, yaitu biaya beban properti ($C_1$), keamanan eksternal kawasan ($C_2$), potensi daya beli lingkungan ($C_3$), visibilitas lokasi ($C_4$), fleksibilitas perombakan struktur bangunan ($C_5$), dan aglomerasi sentra emas ($C_6$). Setiap pasang kriteria dikuantifikasi menggunakan skala fundamental Saaty (1 hingga 9). Rekapitulasi matriks perbandingan berpasangan disajikan pada Tabel 1.
-
-Tabel 1. Matriks Perbandingan Berpasangan Kriteria Pembobotan AHP  
-*(Format cetak: Judul 10 pt, isi sel 8 pt, layout garis horizontal tanpa garis vertikal)*
+Tabel 1. Matriks Perbandingan Berpasangan Kriteria Pembobotan AHP
+> *Format cetak: Judul 10 pt, isi sel 8 pt, layout garis horizontal tanpa garis vertikal.*
 
 | Kriteria | $C_1$ (Biaya) | $C_2$ (Keamanan) | $C_3$ (Daya Beli) | $C_4$ (Visibilitas) | $C_5$ (Struktur) | $C_6$ (Aglomerasi) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -38,14 +21,14 @@ Tabel 1. Matriks Perbandingan Berpasangan Kriteria Pembobotan AHP
 | **$C_6$ (Aglomerasi)** | 1 | 3 | 1/7 | 1/3 | 5 | 1 |
 | **Total Kolom** | 10,3429 | 21,3333 | 1,9206 | 5,0095 | 32,0000 | 12,5333 |
 
-Sebagaimana disajikan pada Tabel 1, setiap elemen diagonal utama memiliki nilai 1 karena membandingkan kriteria dengan dirinya sendiri. Elemen di bawah diagonal utama merupakan nilai resiprokal ($a_{ki} = 1 / a_{ik}$) dari elemen di atas diagonal utama sesuai dengan aksioma perbandingan berpasangan. Nilai total pada baris paling bawah menunjukkan akumulasi penjumlahan kolom yang berperan sebagai faktor penormalisasi dalam proses sintesis vektor bobot prioritas. Kriteria potensi daya beli lingkungan ($C_3$) menghasilkan nilai total kolom paling kecil, yaitu 1,9206. Hal ini menunjukkan bahwa kriteria $C_3$ secara konsisten dinilai jauh lebih dominan dibandingkan kelima kriteria pembanding lainnya.
+Sebagaimana disajikan pada Tabel 1, setiap elemen diagonal utama bernilai 1 karena membandingkan kriteria dengan dirinya sendiri. Elemen di bawah diagonal utama merupakan nilai resiprokal dari elemen di atasnya sesuai dengan aksioma perbandingan berpasangan. Baris paling bawah tersebut menunjukkan akumulasi penjumlahan kolom yang difungsikan sebagai faktor penormalisasi dalam proses sintesis vektor bobot prioritas. Kriteria potensi daya beli lingkungan menghasilkan nilai total kolom paling kecil, yaitu 1,9206. Angka tersebut membuktikan bahwa kriteria daya beli dinilai jauh lebih dominan terhadap kriteria lainnya. Nilai total kolom terkecil mencerminkan prioritas tertinggi.
 
-### 2.2. Sintesis Bobot Kriteria dan Pengujian Rasio Konsistensi
+### B.2.2. Sintesis Bobot Kriteria dan Evaluasi Rasio Konsistensi
 
-Normalisasi matriks perbandingan berpasangan dilakukan dengan membagi setiap elemen sel dengan total kolomnya, kemudian menghitung nilai rata-rata tiap baris sesuai formulasi Persamaan (1). Proses ini menghasilkan vektor bobot prioritas kriteria (*Eigen Vector*). Validitas logika penilai diverifikasi melalui perhitungan nilai eigen maksimum ($\lambda_{\max}$), indeks konsistensi ($CI$), dan rasio konsistensi ($CR$) berdasarkan Persamaan (2a) dan Persamaan (2b). Hasil pembobotan prioritas dan evaluasi konsistensi dirangkum pada Tabel 2.
+Normalisasi matriks perbandingan berpasangan dilakukan dengan membagi setiap elemen sel terhadap total kolomnya, lalu merata-ratakan nilai baris sesuai dengan formulasi Persamaan (1). Tahapan komputasi ini dilakukan untuk menghasilkan vektor bobot prioritas kriteria. Logika penilaian itu kemudian dapat diuji secara menyeluruh melalui perhitungan nilai eigen maksimum beserta rasio konsistensi logisnya. Rangkuman hasil pembobotan prioritas dan evaluasi konsistensi tersebut disajikan pada Tabel 2.
 
-Tabel 2. Hasil Pembobotan Prioritas Kriteria dan Parameter Evaluasi Konsistensi  
-*(Format cetak: Judul 10 pt, isi sel 8 pt, layout garis horizontal tanpa garis vertikal)*
+Tabel 2. Hasil Pembobotan Prioritas Kriteria dan Parameter Evaluasi Konsistensi
+> *Format cetak: Judul 10 pt, isi sel 8 pt, layout garis horizontal tanpa garis vertikal.*
 
 | Kode Kriteria | Deskripsi Kriteria Evaluasi | Nilai Eigen Vector ($w_j$) | Persentase Bobot | Peringkat Prioritas |
 | :--- | :--- | :---: | :---: | :---: |
@@ -63,14 +46,14 @@ Tabel 2. Hasil Pembobotan Prioritas Kriteria dan Parameter Evaluasi Konsistensi
 | $RI$ | *Random Index* Saaty ($n=6$) | 1,24 | - | Standar Literatur |
 | $CR$ | *Consistency Ratio* ($CI / RI$) | 0,0677 (6,77%) | $\le 0,10$ | Konsisten dan Valid |
 
-Berdasarkan komputasi pada Tabel 2, kriteria potensi daya beli lingkungan ($C_3$) menempati urutan prioritas tertinggi dengan bobot sebesar $0{,}4614$ (46,14%), disusul oleh visibilitas lokasi ($C_4$) dengan bobot $0{,}2258$ (22,58%), dan biaya beban properti ($C_1$) dengan bobot $0{,}1333$ (13,33%). Distribusi pembobotan ini mencerminkan karakteristik spesifik zona komersial di Daerah Istimewa Yogyakarta: koridor primer Jl. Magelang-Sinduadi dan Malioboro mengungguli kawasan padat mahasiswa Babarsari dan Taman Siswa justru karena konsentrasi konsumen berdaya beli tinggi ($C_3$) dan keterlihatan fisik gerai dari koridor lalu lintas utama ($C_4$) menjadi penentu daya saing komersial yang dominan. Pada bagian pengujian konsistensi, diperoleh nilai eigen maksimum ($\lambda_{\max}$) sebesar 6,420, nilai $CI$ sebesar 0,084, dan nilai $CR$ sebesar 0,0677. Mengingat nilai $CR$ berada di bawah batas ambang 0,10 (atau 6,77% < 10%), matriks perbandingan berpasangan dinyatakan konsisten secara logis dan terbebas dari deviasi preferensi yang bersifat spekulatif.
+Berdasarkan komputasi pada Tabel 2, kriteria potensi daya beli lingkungan menempati urutan prioritas tertinggi dengan bobot sebesar 0,4614 (46,14%). Posisi kedua ditempati oleh visibilitas lokasi dengan bobot 0,2258 (22,58%), disusul oleh biaya beban properti sebesar 0,1333 (13,33%). Distribusi pembobotan ini mencerminkan karakteristik spasial di Daerah Istimewa Yogyakarta, dengan koridor primer yang ramai mengungguli kawasan sekitar kampus karena konsentrasi konsumen berdaya beli tinggi menjadi penentu utama perputaran transaksi. Pada pengujian konsistensi, diperoleh nilai eigen maksimum sebesar 6,420 dan rasio konsistensi sebesar 0,0677. Mengingat angka tersebut berada di bawah ambang batas 0,10, struktur preferensi yang dianalisis ini dinyatakan konsisten dan valid. Temuan ini membuktikan konsistensi penilaian.
 
-### 2.3. Matriks Keputusan Alternatif Lokasi
+### B.2.3. Matriks Keputusan Alternatif Lokasi
 
-Penilaian terhadap lima kandidat lokasi di wilayah Daerah Istimewa Yogyakarta, yaitu Sinduadi ($A_1$), Jl. Magelang ($A_2$), Babarsari ($A_3$), Taman Siswa ($A_4$), dan Malioboro Mall ($A_5$), dilaksanakan menggunakan metode Weighted Product untuk mengamankan stabilitas urutan keputusan dari anomali pembalikan peringkat (*rank reversal*). Data kinerja masing-masing kandidat dikompilasi dalam nilai riil (*crisp data*) dan diklasifikasikan ke dalam atribut biaya (*cost*) serta atribut keuntungan (*benefit*). Struktur data profil lokasi disajikan pada Tabel 3.
+Penilaian terhadap lima kandidat lokasi di Daerah Istimewa Yogyakarta dilaksanakan untuk mengamankan stabilitas keputusan dari anomali pembalikan peringkat. Evaluasi ini mencakup lima kawasan alternatif di Daerah Istimewa Yogyakarta: Sinduadi ($A_1$), Jalan Magelang ($A_2$), Babarsari ($A_3$), Taman Siswa ($A_4$), dan Malioboro Mall ($A_5$). Data kinerja masing-masing kandidat dikompilasi ke dalam nilai riil dan diklasifikasikan ke dalam atribut keuntungan serta atribut biaya. Profil data awal untuk seluruh lokasi tersebut disajikan pada Tabel 3.
 
-Tabel 3. Matriks Keputusan Alternatif Lokasi Ritel Perhiasan Emas  
-*(Format cetak: Judul 10 pt, isi sel 8 pt, layout garis horizontal tanpa garis vertikal)*
+Tabel 3. Matriks Keputusan Alternatif Lokasi Ritel Perhiasan Emas
+> *Format cetak: Judul 10 pt, isi sel 8 pt, layout garis horizontal tanpa garis vertikal.*
 
 | Kode | Nama Alternatif Lokasi | $C_1$ (Cost)<br>Biaya Sewa (Juta Rp) | $C_2$ (Benefit)<br>Keamanan (1-5) | $C_3$ (Benefit)<br>Daya Beli (1-5) | $C_4$ (Benefit)<br>Visibilitas (1-5) | $C_5$ (Benefit)<br>Struktur (1-5) | $C_6$ (Benefit)<br>Aglomerasi (1-5) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -80,14 +63,14 @@ Tabel 3. Matriks Keputusan Alternatif Lokasi Ritel Perhiasan Emas
 | **$A_4$** | Taman Siswa | 250 | 3 | 4 | 5 | 5 | 3 |
 | **$A_5$** | Malioboro Mall | 346,32 | 5 | 5 | 4 | 2 | 4 |
 
-Data pada Tabel 3 bertindak sebagai matriks keputusan $X = [x_{ij}]_{5 \times 6}$ yang menjadi titik tolak komputasi metode Weighted Product. Kriteria biaya beban properti ($C_1$) berstatus sebagai atribut *cost*, sehingga nilai nominal yang lebih rendah memberikan kontribusi preferensi yang lebih menguntungkan bagi investor. Sebaliknya, kriteria $C_2$ hingga $C_6$ berstatus sebagai atribut *benefit*, di mana nilai skala yang semakin tinggi mencerminkan keunggulan karakteristik lokasi. Melalui metode Weighted Product, perbedaan dimensi satuan antara nominal rupiah pada $C_1$ dengan skala ordinal 1 hingga 5 pada kriteria lainnya dapat diproses secara langsung melalui operasi perkalian eksponensial tanpa memerlukan proses transformasi normalisasi linear antar kolom.
+Data pada Tabel 3 bertindak sebagai matriks keputusan yang menjadi titik tolak komputasi metode pemeringkatan. Kriteria biaya beban properti berstatus sebagai atribut biaya sehingga nilai yang lebih rendah akan memberikan kontribusi preferensi yang lebih menguntungkan bagi investor. Sebaliknya, lima kriteria lainnya berstatus sebagai atribut keuntungan dengan nilai yang lebih tinggi mencerminkan performa lokasi yang lebih unggul. Melalui operasi perkalian eksponensial ini, disparitas dimensi ukuran antara biaya sewa bernilai ratusan juta rupiah dan skor kualitatif dapat diproses secara langsung tanpa proses transformasi normalisasi antarkolom. Karakteristik ini menyederhanakan perhitungan data.
 
-### 2.4. Preferensi Komputasi dan Pemeringkatan Akhir Alternatif
+### B.2.4. Komputasi Preferensi dan Pemeringkatan Akhir Alternatif
 
-Komputasi pemeringkatan akhir diawali dengan menghitung nilai preferensi Vektor $S_i$ untuk setiap kandidat lokasi melalui formulasi Persamaan (3b). Bobot kriteria $w_j$ yang diperoleh dari metode AHP diterapkan sebagai eksponen matematis, yaitu bernilai negatif untuk atribut biaya ($-w_1 = -0{,}1333$) dan bernilai positif untuk atribut keuntungan ($+w_2$ hingga $+w_6$). Nilai preferensi relatif Vektor $V_i$ kemudian dihitung dengan menormalisasi setiap nilai $S_i$ terhadap jumlah total Vektor $S$ seluruh alternatif berdasarkan formulasi Persamaan (4). Urutan peringkat akhir disusun berdasarkan nilai preferensi Vektor $V$ dari yang tertinggi hingga terendah sebagaimana disajikan pada Tabel 4.
+Komputasi pemeringkatan akhir diawali dengan menghitung nilai preferensi Vektor S untuk setiap kandidat lokasi melalui formulasi perkalian eksponensial. Bobot kriteria hasil AHP diterapkan sebagai eksponen matematis, yaitu bernilai negatif untuk atribut biaya dan bernilai positif untuk kelima atribut keuntungan. Nilai preferensi relatif Vektor V kemudian dihitung dengan menormalisasi nilai Vektor S terhadap total akumulasi nilai seluruh alternatif. Urutan peringkat akhir kandidat lokasi tersebut disusun berdasarkan nilai Vektor V dari yang tertinggi hingga terendah sebagaimana disajikan pada Tabel 4.
 
-Tabel 4. Hasil Perhitungan Preferensi Vektor S, Vektor V, dan Pemeringkatan Akhir  
-*(Format cetak: Judul 10 pt, isi sel 8 pt, layout garis horizontal tanpa garis vertikal)*
+Tabel 4. Hasil Perhitungan Preferensi Vektor S, Vektor V, dan Pemeringkatan Akhir
+> *Format cetak: Judul 10 pt, isi sel 8 pt, layout garis horizontal tanpa garis vertikal.*
 
 | Peringkat | Kode | Nama Alternatif Lokasi | Nilai Vektor $S$ | Nilai Vektor $V$ | Persentase Preferensi | Rekomendasi Keputusan |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -98,6 +81,6 @@ Tabel 4. Hasil Perhitungan Preferensi Vektor S, Vektor V, dan Pemeringkatan Akhi
 | **5** | **$A_3$** | Babarsari | 1,0006 | 0,1360 | 13,60% | Alternatif Kelima |
 | - | - | **Total Akumulasi** | **7,3559** | **1,0000** | **100,00%** | - |
 
-Berdasarkan hasil pemeringkatan pada Tabel 4, alternatif $A_1$ (Sinduadi) menempati peringkat pertama dengan nilai Vektor $S$ sebesar 1,6934 dan nilai preferensi relatif Vektor $V$ tertinggi, yaitu 0,2302 (23,02%). Peringkat kedua ditempati oleh alternatif $A_5$ (Malioboro Mall) dengan nilai Vektor $V$ sebesar 0,2243 (22,43%), disusul oleh $A_4$ (Taman Siswa) dengan nilai 0,2158 (21,58%), $A_2$ (Jl. Magelang) dengan nilai 0,1937 (19,37%), dan $A_3$ (Babarsari) pada peringkat terakhir dengan nilai 0,1360 (13,60%).
+Berdasarkan hasil pemeringkatan pada Tabel 4, alternatif Sinduadi menempati peringkat pertama dengan nilai preferensi relatif sebesar 0,2302 (23,02%). Malioboro Mall berada pada peringkat kedua dengan nilai 0,2243 (22,43%), disusul oleh Taman Siswa sebesar 0,2158 (21,58%), Jalan Magelang dengan skor 0,1937 (19,37%), dan Babarsari pada posisi terakhir dengan nilai 0,1360 (13,60%). Urutan ini menunjukkan stabilitas hasil.
 
-Secara komputasional dan operasional, keunggulan lokasi $A_1$ (Sinduadi) terbentuk karena alternatif ini menawarkan *trade-off* yang paling menguntungkan antara aspek biaya dan atribut keuntungan. Alternatif $A_5$ (Malioboro Mall) mencatatkan nilai tertinggi pada kriteria potensi daya beli ($C_3 = 5$) dan keamanan kawasan ($C_2 = 5$), namun beban sewa tahunan yang sangat tinggi (346,32 juta rupiah) memberikan beban penalti eksponensial negatif yang substansial pada komputasi Vektor $S$. Di sisi lain, lokasi $A_1$ (Sinduadi) menyajikan efisiensi biaya sewa yang moderat (130 juta rupiah) yang dipadukan dengan performa tinggi pada visibilitas ruang (skor 5), fleksibilitas modifikasi struktur brankas tonase berat (skor 5), serta potensi daya beli lingkungan yang kuat (skor 4). Hasil pemeringkatan pada Tabel 4 membuktikan efektivitas integrasi AHP-WP dalam menghasilkan rekomendasi lokasi investasi ritel perhiasan emas yang objektif, konsisten, dan stabil.
+Keunggulan lokasi Sinduadi terbentuk karena alternatif ini menawarkan keseimbangan yang paling menguntungkan antara aspek efisiensi biaya dan atribut keuntungan operasional. Lokasi Malioboro Mall memang mencatatkan skor tertinggi pada potensi daya beli dan keamanan kawasan, namun beban sewa tahunan yang mencapai 346,32 juta rupiah menimbulkan penalti eksponensial yang cukup besar pada komputasi Vektor S. Sebaliknya, lokasi Sinduadi menawarkan efisiensi biaya sewa yang moderat sebesar 130 juta rupiah yang dipadukan dengan visibilitas koridor yang tinggi serta keleluasaan renovasi struktur gedung untuk penempatan brankas berat. Hasil komputasi pada Tabel 4 ini membuktikan bahwa integrasi AHP-WP berhasil menetapkan rekomendasi lokasi investasi yang objektif dan konsisten.
