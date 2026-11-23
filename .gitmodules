@@ -1,0 +1,3 @@
+[submodule "SKILLS/claude-office-skills"]
+	path = SKILLS/claude-office-skills
+	url = https://github.com/tfriedel/claude-office-skills.git
