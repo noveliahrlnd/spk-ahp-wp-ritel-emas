@@ -21,7 +21,7 @@ Dokumen ini menjadi *single source of truth* konteks, aturan, data, dan roadmap 
 ## 2. Struktur Folder `Paper/`
 
 - `01_Dokumen_dan_Template/` — Template resmi jurnal: `New Malcom Template.docx`.
-- `02_Literature_Notes/papers/` — **17 artikel PDF terverifikasi (tahun 2023–2026)** sebagai kolam referensi utama.
+- `02_Literature_Notes/` — Berisi `00_INDEX_Daftar_Pustaka.md` dan **17 berkas ringkasan `.md`** yang dikelompokkan ke 5 subfolder topik (`01_Konteks_Pasar_Emas/`, `02_Rank_Reversal_AHP/`, `03_Model_Hibrida_AHP_WP/`, `04_Penentuan_Lokasi_Ritel/`, `05_Analisis_Sensitivitas/`), sementara PDF lengkapnya berada di `02_Literature_Notes/papers/` (**17 artikel PDF terverifikasi tahun 2023–2026**). **Baca `00_INDEX_Daftar_Pustaka.md` dan ringkasan `.md` di folder topik terlebih dahulu sebelum membuka PDF.**
 - `03_Manuscript_Draft/` — Draf naskah dan dataset (`Dataset_Penelitian.md`, serta draf bab lama yang sedang/akan ditata ulang).
 - `Ringkasan Progress/` — Catatan ringkasan presentasi dan log progres historis.
 - `SKILLS/` — Skill pendukung (`academic-writing-refiner`, `humanizer-indonesia-main`, dan `claude-office-skills/public/{docx,pdf,pptx,xlsx}`).
@@ -66,15 +66,16 @@ Naskah tidak lagi menggunakan struktur lama RMSI (tidak ada bab *Landasan Teori*
   - $C_4$ Visibilitas Lokasi (*Benefit*, skala 1–5): $w_4 = 0{,}2258$ ($22{,}58\%$)
   - $C_5$ Fleksibilitas Perombakan Struktur (*Benefit*, skala 1–5): $w_5 = 0{,}0271$ ($2{,}71\%$)
   - $C_6$ Aglomerasi Sentra Emas (*Benefit*, skala 1–5): $w_6 = 0{,}1023$ ($10{,}23\%$)
-  - **Uji Konsistensi AHP:** $\lambda_{\max} = 6{,}420$, $CI = 0{,}084$, $RI = 1{,}24$, $CR = 0{,}0677 \le 0{,}10$ (Konsisten).
-- **Alternatif Lokasi ($m = 5$) & Hasil WP:**
-  1. **$A_1$ — Sinduadi (Jl. Umbul Permai):** $C_1=130$, $C_2=3, C_3=4, C_4=5, C_5=5, C_6=2$ → $S_1 = 1{,}6934$, $V_1 = 0{,}2302$ ($23{,}02\%$) — **Peringkat 1**.
-  2. **$A_5$ — Malioboro Mall:** luas ruang usaha **78 m²** *(koreksi resmi dari pengguna!)*, $C_1=346{,}32$, $C_2=5, C_3=5, C_4=4, C_5=2, C_6=4$ → $S_5 = 1{,}6501$, $V_5 = 0{,}2243$ ($22{,}43\%$) — **Peringkat 2**.
-  3. **$A_4$ — Taman Siswa:** $C_1=250$, $C_2=3, C_3=4, C_4=5, C_5=5, C_6=3$ → $S_4 = 1{,}5872$, $V_4 = 0{,}2158$ ($21{,}58\%$) — **Peringkat 3**.
-  4. **$A_2$ — Jl. Magelang Km. 5:** $C_1=120$, $C_2=3, C_3=3, C_4=4, C_5=5, C_6=2$ → $S_2 = 1{,}4246$, $V_2 = 0{,}1937$ ($19{,}37\%$) — **Peringkat 4**.
-  5. **$A_3$ — Babarsari:** $C_1=150$, $C_2=3, C_3=2, C_4=3, C_5=5, C_6=1$ → $S_3 = 1{,}0006$, $V_3 = 0{,}1360$ ($13{,}60\%$) — **Peringkat 5**.
-  - Total $\sum S_k = 7{,}3559$, $\sum V_k = 1{,}0000$.
-- **Koreksi Tertunda di Draf Lama:** Di `03_Manuscript_Draft/Draft_Metodologi_Penelitian.md` (baris 49) masih tertulis luas $A_5$ sebesar `54 meter persegi`—wajib diganti menjadi **78 m²** saat revisi draf nanti.
+  - **Uji Konsistensi AHP:** $\lambda_{\max} = 6{,}4211$, $CI = 0{,}0842$, $RI = 1{,}24$, $CR = 0{,}0679$ ($6{,}79\% \le 0{,}10$, Konsisten).
+- **Alternatif Lokasi ($m = 5$) & Hasil WP Terverifikasi:**
+  1. **$A_1$ — Sinduadi (Jl. Umbul Permai):** $C_1=130$, $C_2=3, C_3=4, C_4=5, C_5=5, C_6=2$ → $S_1 = 1{,}6885$ ($1{,}6884$ pada bobot 4dp), $V_1 = 0{,}2282$ ($22{,}82\%$) — **Peringkat 1**.
+  2. **$A_5$ — Malioboro Mall:** luas ruang usaha **78 m²** *(koreksi resmi dari pengguna!)*, $C_1=346{,}32$, $C_2=5, C_3=5, C_4=4, C_5=2, C_6=4$ → $S_5 = 1{,}6777$, $V_5 = 0{,}2268$ ($22{,}68\%$) — **Peringkat 2** (margin tipis $\Delta V = 0{,}14\%$, rasio $S_1/S_5 = 1{,}0064$).
+  3. **$A_4$ — Taman Siswa:** $C_1=250$, $C_2=3, C_3=4, C_4=5, C_5=5, C_6=3$ → $S_4 = 1{,}6131$, $V_4 = 0{,}2180$ ($21{,}80\%$) — **Peringkat 3**.
+  4. **$A_2$ — Jl. Magelang Km. 5:** $C_1=120$, $C_2=3, C_3=3, C_4=4, C_5=5, C_6=2$ → $S_2 = 1{,}4210$, $V_2 = 0{,}1921$ ($19{,}21\%$) — **Peringkat 4**.
+  5. **$A_3$ — Babarsari:** $C_1=150$, $C_2=3, C_3=2, C_4=3, C_5=5, C_6=1$ → $S_3 = 0{,}9987$, $V_3 = 0{,}1350$ ($13{,}50\%$) — **Peringkat 5**.
+  - Total $\sum S_k = 7{,}3989$ ($7{,}3986$ pada bobot 4dp), $\sum V_k = 1{,}0000$.
+  - **Hasil Evaluasi Terverifikasi (IDCG/NDCG & Sensitivitas):** Uji *rank reversal* (tambah $A_6$ menengah/dominan/inferior & hapus $A_3$) menghasilkan $\text{DCG} = \text{IDCG}$ ($\text{NDCG} = 1{,}0000$, $S_1/S_5 = 1{,}0064$ invarian). Analisis sensitivitas menunjukkan $A_1$ makin kokoh saat $w_1$ naik $+10\%/+20\%$, tetapi $A_5$ menyalip $A_1$ ($\text{NDCG} = 0{,}8706$) tepat pada titik kritis $w_3 > 47{,}64\%$ atau $w_1 < 12{,}76\%$.
+- **Koreksi Tertunda di Draf Lama:** Di `03_Manuscript_Draft/Draft_Metodologi_Penelitian.md` (baris 49) masih tertulis `54 meter persegi` untuk $A_5$ (ganti ke `78 m²`); dan di `Draft_Hasil_dan_Pembahasan.md` & `Draft_Penulisan_Tabel.md` masih memakai angka WP lama (`1,6934`/`1,6501`/`0,2302`) serta klaim sensitivitas $C_3 = 60\%$ yang keliru—wajib diperbarui mengikuti `Dataset_Penelitian.md` saat konsolidasi draf.
 
 ## 6. Aturan Sitasi, Keakuratan, & Penggunaan Skill
 
