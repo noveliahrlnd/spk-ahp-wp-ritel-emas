@@ -28,9 +28,87 @@ Berdasarkan celah metodologis tersebut, penelitian ini bertujuan merumuskan dan 
 
 ## 2. METODE
 
-Bagian ini menguraikan spesifikasi data kriteria dan alternatif lokasi yang dievaluasi serta desain penelitian hibrida AHP-WP beserta formulasi matematis dan skema evaluasinya.
+Bagian ini menguraikan desain penelitian yang memadukan metode *Analytic Hierarchy Process* (AHP) dan *Weighted Product* (WP) beserta tahapan rumus matematisnya, diikuti spesifikasi data kriteria dan alternatif lokasi yang dievaluasi.
 
-### 2.1. Data Kriteria dan Alternatif
+### 2.1. Desain Penelitian
+
+Desain penelitian menerapkan arsitektur hibrida yang memisahkan pembobotan kriteria menggunakan metode AHP dari pemeringkatan alternatif menggunakan metode WP [9], [10]. Alur kerja model SPK penentuan lokasi toko emas disusun ke dalam dua jalur komputasi sebagaimana disajikan pada Gambar 1.
+
+```mermaid
+flowchart TD
+    classDef pill fill:#ffffff,stroke:#333333,stroke-width:1.2px,color:#111111;
+    Root(["SPK\nPenentuan Lokasi Toko Emas"]):::pill
+    Krit(["Menentukan Kriteria"]):::pill
+    Root --> Krit
+    Krit --> AHP(["AHP"]):::pill
+    Krit --> WP(["WP"]):::pill
+    AHP --> PB(["Perbandingan Berpasangan"]):::pill
+    PB --> CICR(["CI dan CR"]):::pill
+    CICR --> Bobot(["Bobot"]):::pill
+    WP --> PA(["Penilaian Alternatif"]):::pill
+    PA --> NB(["Normalisasi Bobot"]):::pill
+    Bobot --> NB
+    NB --> PMB(["Pemangkatan Bobot"]):::pill
+    PMB --> PRK(["Perankingan"]):::pill
+    PRK --> RNK(["Ranking"]):::pill
+```
+
+Gambar 1. Desain Penelitian Model SPK Hibrida AHP-WP Penentuan Lokasi Toko Emas
+
+Berdasarkan bagan pada Gambar 1, proses diawali dengan penentuan kriteria keputusan, lalu dijalankan melalui dua jalur perhitungan utama, yaitu tahapan metode AHP untuk menghasilkan bobot kriteria dan tahapan metode WP untuk menghasilkan peringkat akhir alternatif.
+
+#### 2.1.1. Tahapan dan Rumus Metode AHP
+
+Metode AHP digunakan khusus untuk memperoleh bobot prioritas kriteria yang konsisten sebelum diteruskan ke fase pemeringkatan WP [12]. Tahapan perhitungannya terdiri atas tiga langkah berikut:
+
+1. **Perbandingan Berpasangan:**  
+   Tingkat kepentingan relatif antarkriteria disusun ke dalam matriks perbandingan berpasangan $A = [a_{jk}]_{n \times n}$ menggunakan skala fundamental Saaty 1 hingga 9 yang memenuhi sifat resiprokal $a_{kj} = 1 / a_{jk}$ dan elemen diagonal utama $a_{jj} = 1$ [7], [16]. Selanjutnya, setiap elemen matriks dinormalisasi terhadap total kolomnya pada Persamaan (1), kemudian dirata-ratakan per baris pada Persamaan (2) untuk memperoleh vektor bobot prioritas kriteria [7], [9].
+
+$$r_{jk} = \frac{a_{jk}}{\sum_{p=1}^{n} a_{pk}} \quad \forall j, k \in \{1, 2, \dots, n\} \tag{1}$$
+
+$$w_j = \frac{1}{n} \sum_{k=1}^{n} r_{jk}, \quad \text{dengan } \sum_{j=1}^{n} w_j = 1 \tag{2}$$
+
+   Pada Persamaan (1) dan Persamaan (2), $r_{jk}$ menyatakan elemen ternormalisasi baris ke-$j$ kolom ke-$k$, $a_{jk}$ adalah nilai perbandingan kriteria ke-$j$ terhadap kriteria ke-$k$, dan $w_j$ adalah bobot prioritas kriteria ke-$j$.
+
+2. **Perhitungan *CI* dan *CR*:**  
+   Konsistensi logika matriks perbandingan berpasangan diuji melalui nilai eigen maksimum ($\lambda_{\max}$), *Consistency Index* ($CI$), dan *Consistency Ratio* ($CR$) yang dihitung menggunakan Persamaan (3), Persamaan (4), dan Persamaan (5) [16], [17].
+
+$$\lambda_{\max} = \frac{1}{n} \sum_{j=1}^{n} \frac{(A \cdot w)_j}{w_j} \tag{3}$$
+
+$$CI = \frac{\lambda_{\max} - n}{n - 1} \tag{4}$$
+
+$$CR = \frac{CI}{RI} \tag{5}$$
+
+   Pada Persamaan (3) hingga Persamaan (5), $(A \cdot w)_j$ menyatakan elemen ke-$j$ dari hasil perkalian matriks $A$ terhadap vektor bobot $w$, sedangkan $RI$ adalah *Random Index* standar Saaty yang bernilai $1{,}24$ untuk $n = 6$ [17]. Matriks perbandingan dinyatakan konsisten apabila $CR \le 0{,}10$; jika $CR > 0{,}10$, penilaian berpasangan harus diperbaiki kembali.
+
+3. **Penetapan Bobot:**  
+   Setelah memenuhi ambang $CR \le 0{,}10$, vektor bobot kriteria $w = (w_1, w_2, \dots, w_n)$ ditetapkan sebagai bobot final dan diteruskan sebagai masukan menuju tahap normalisasi bobot pada metode WP. Penggunaan AHP dihentikan pada tahap ini agar pemeringkatan alternatif terhindar dari anomali *rank reversal* [12], [13].
+
+#### 2.1.2. Tahapan dan Rumus Metode Weighted Product (WP)
+
+Metode WP digunakan untuk memeringkatkan seluruh kandidat lokasi melalui operasi perkalian eksponensial berbasis bobot kriteria dari AHP [9], [11]. Tahapan perhitungannya terdiri atas empat langkah berikut:
+
+1. **Penilaian Alternatif:**  
+   Nilai kinerja seluruh alternatif lokasi terhadap setiap kriteria dihimpun ke dalam matriks keputusan $X = [x_{ij}]_{m \times n}$, dengan $x_{ij}$ menyatakan nilai kinerja alternatif ke-$i$ ($i = 1, 2, \dots, m$) pada kriteria ke-$j$ ($j = 1, 2, \dots, n$).
+
+2. **Normalisasi Bobot:**  
+   Bobot kriteria $w_j$ dari fase AHP dipastikan ternormalisasi ($\sum_{j=1}^{n} w_j = 1$) dan dikalibrasi tandanya menjadi eksponen $W_j^*$ sesuai sifat atribut kriteria melalui Persamaan (6) [9], [11].
+
+$$W_j^* = \begin{cases} +w_j, & \text{jika kriteria } j \text{ bersifat keuntungan (benefit)} \\ -w_j, & \text{jika kriteria } j \text{ bersifat biaya (cost)} \end{cases} \tag{6}$$
+
+3. **Pemangkatan Bobot (Vektor $S_i$):**  
+   Skor preferensi absolut setiap alternatif ($S_i$) dihitung dengan memangkatkan nilai kinerja tiap kriteria terhadap eksponen $W_j^*$ lalu mengalikannya berdasarkan Persamaan (7) [9], [11].
+
+$$S_i = \prod_{j=1}^{n} (x_{ij})^{W_j^*} \quad \forall i \in \{1, 2, \dots, m\} \tag{7}$$
+
+4. **Perankingan dan *Ranking* (Vektor $V_i$):**  
+   Setiap nilai $S_i$ dibagi terhadap jumlah seluruh $S_k$ untuk menghasilkan nilai preferensi relatif ($V_i$) sesuai Persamaan (8) [9], [11].
+
+$$V_i = \frac{S_i}{\sum_{k=1}^{m} S_k}, \quad \text{dengan } \sum_{i=1}^{m} V_i = 1 \tag{8}$$
+
+   Hasil perhitungan $V_i$ kemudian diurutkan dari nilai tertinggi hingga terendah untuk menetapkan *ranking* akhir, dengan alternatif bernilai $V_i$ tertinggi menjadi rekomendasi lokasi utama.
+
+### 2.2. Data Kriteria dan Alternatif
 
 Objek penelitian ini adalah pemilihan lokasi fisik gerai ritel perhiasan emas pada lima kandidat ruang komersial di wilayah Daerah Istimewa Yogyakarta. Kelima kandidat tersebut dipilih untuk mewakili keragaman zonasi niaga perkotaan, mulai dari koridor hunian berkembang, jalur arteri komersial, sentra pendidikan, koridor perkotaan sentral, hingga pusat perbelanjaan pariwisata. Seluruh data spesifikasi fisik dan harga sewa tahunan dihimpun dari data listing properti komersial serta observasi lapangan. Adapun matriks perbandingan berpasangan kriteria dan pemberian skor kualitatif berskala 1–5 disusun berdasarkan asumsi dan penilaian tim peneliti yang diturunkan secara konsisten dari hasil observasi lapangan dan profil listing masing-masing properti.
 
@@ -78,119 +156,6 @@ Tabel 3. Matriks Keputusan Profil Kinerja Lima Kandidat Lokasi di D.I. Yogyakart
 | $A_3$ | Kawasan Babarsari | 150,00 | 3 | 2 | 3 | 5 | 1 |
 | $A_4$ | Jl. Taman Siswa (Sudut *Hook*) | 250,00 | 3 | 4 | 5 | 5 | 3 |
 | $A_5$ | Malioboro Mall (78 m²) | 346,32 | 5 | 5 | 4 | 2 | 4 |
-
-### 2.2. Desain Penelitian
-
-Desain penelitian ini menerapkan arsitektur hibrida sekuensial yang memisahkan kewenangan antara pembobotan kriteria dan pemeringkatan alternatif [9], [10]. Langkah awal memetakan domain masalah ke dalam struktur hierarki keputusan tiga tingkat sebagaimana ditunjukkan pada Gambar 1. Tingkat pertama menetapkan sasaran utama penelitian, tingkat kedua memuat enam kriteria evaluasi (satu atribut biaya dan lima atribut keuntungan), dan tingkat ketiga menempatkan lima kandidat lokasi di DIY.
-
-```mermaid
-graph TD
-    classDef level1 fill:#f5f5f5,stroke:#111111,stroke-width:2px,color:#111111;
-    classDef level2 fill:#e6e6e6,stroke:#333333,stroke-width:1.5px,color:#111111;
-    classDef level3 fill:#ffffff,stroke:#333333,stroke-width:1px,color:#111111;
-    subgraph L1 ["Tingkat 1: Sasaran Keputusan"]
-        Goal["Penentuan Lokasi Strategis Gerai Ritel Perhiasan Emas"]:::level1
-    end
-    subgraph L2 ["Tingkat 2: Kriteria Evaluasi"]
-        C1["C1: Biaya Beban Properti (Cost)"]:::level2
-        C2["C2: Keamanan Kawasan (Benefit)"]:::level2
-        C3["C3: Potensi Daya Beli (Benefit)"]:::level2
-        C4["C4: Visibilitas Lokasi (Benefit)"]:::level2
-        C5["C5: Fleksibilitas Struktur (Benefit)"]:::level2
-        C6["C6: Aglomerasi Sentra Emas (Benefit)"]:::level2
-    end
-    subgraph L3 ["Tingkat 3: Alternatif Lokasi"]
-        A1["A1: Sinduadi"]:::level3
-        A2["A2: Jl. Magelang"]:::level3
-        A3["A3: Babarsari"]:::level3
-        A4["A4: Taman Siswa"]:::level3
-        A5["A5: Malioboro Mall"]:::level3
-    end
-    Goal --> C1 & C2 & C3 & C4 & C5 & C6
-    C1 --- A1 & A2 & A3 & A4 & A5
-    C2 --- A1 & A2 & A3 & A4 & A5
-    C3 --- A1 & A2 & A3 & A4 & A5
-    C4 --- A1 & A2 & A3 & A4 & A5
-    C5 --- A1 & A2 & A3 & A4 & A5
-    C6 --- A1 & A2 & A3 & A4 & A5
-```
-
-Gambar 1. Struktur Hierarki Keputusan Penentuan Lokasi Ritel Perhiasan Emas
-
-Alur komputasi model SPK hibrida AHP-WP secara menyeluruh disajikan pada Gambar 2. Bagian terpenting dalam arsitektur tersebut adalah pemberlakuan **Titik Potong Metodologis** tepat setelah bobot kriteria AHP terbukti konsisten ($CR \le 0{,}10$). Pembatasan ini menghentikan penggunaan AHP sebelum menyentuh perbandingan berpasangan antaralternatif, sehingga risiko *rank reversal* akibat normalisasi kolom lokal AHP dapat diputus secara struktural [12], [13].
-
-```mermaid
-flowchart TD
-    classDef startEnd fill:#ffffff,stroke:#111111,stroke-width:2px,color:#111111;
-    classDef process fill:#f2f2f2,stroke:#333333,stroke-width:1.5px,color:#111111;
-    classDef decision fill:#e6e6e6,stroke:#111111,stroke-width:1.5px,color:#111111;
-    classDef cutoff fill:#d9d9d9,stroke:#111111,stroke-width:2px,stroke-dasharray: 4 4,color:#111111;
-    Start(["Mulai"]):::startEnd --> T1["Tahap 1: Identifikasi Kriteria, Alternatif, dan Matriks X"]:::process
-    T1 --> T2["Tahap 2: Konstruksi Matriks Perbandingan Berpasangan AHP (A)"]:::process
-    T2 --> T3["Tahap 3: Normalisasi Kolom & Sintesis Bobot Prioritas (w_j)"]:::process
-    T3 --> T4{"Tahap 4: Uji Konsistensi Saaty CR <= 0,10?"}:::decision
-    T4 -- "Tidak (CR > 0,10)" --> T2
-    T4 -- "Ya (Konsisten)" --> T5["Titik Potong Metodologis: Isolasi AHP & Alih ke WP"]:::cutoff
-    T5 --> T6["Tahap 5: Kalibrasi Pangkat Eksponen WP (W_j* = -w_j / +w_j)"]:::process
-    T6 --> T7["Tahap 6: Hitung Vektor Preferensi Absolut (S_i) & Relatif (V_i)"]:::process
-    T7 --> T8["Tahap 7: Evaluasi Trade-off, Uji Rank Reversal (DCG/IDCG/NDCG), & Sensitivitas"]:::process
-    T8 --> Selesai(["Selesai: Rekomendasi Lokasi Optimal"]):::startEnd
-```
-
-Gambar 2. Bagan Model SPK dan Diagram Alir Komputasi Hibrida AHP-WP dengan Titik Potong Metodologis
-
-Setiap tahapan pada Gambar 2 dijalankan secara sekuensial melalui formulasi matematis berikut dengan notasi yang seragam di seluruh naskah:
-
-**Tahap 1 dan Tahap 2 (Penyusunan Matriks Keputusan dan Matriks Perbandingan Berpasangan AHP):**  
-Seluruh data kinerja alternatif disusun ke dalam matriks keputusan $X = [x_{ij}]_{m \times n}$ dengan $m = 5$ alternatif dan $n = 6$ kriteria. Pada fase pembobotan AHP, kepentingan relatif antarkriteria dimodelkan melalui matriks perbandingan berpasangan $A = [a_{jk}]_{n \times n}$ berskala fundamental Saaty 1 hingga 9 yang memenuhi sifat resiprokal $a_{kj} = 1 / a_{jk}$ dan elemen diagonal utama $a_{jj} = 1$ [7], [16].
-
-**Tahap 3 (Normalisasi Kolom dan Sintesis Bobot Prioritas AHP):**  
-Setiap elemen matriks $A$ dinormalisasi terhadap total kolomnya seperti pada Persamaan (1), kemudian dirata-ratakan pada setiap baris untuk memperoleh vektor bobot prioritas $w_j$ sesuai Persamaan (2) [7], [9].
-
-$$r_{jk} = \frac{a_{jk}}{\sum_{p=1}^{n} a_{pk}} \quad \forall j, k \in \{1, 2, \dots, n\} \tag{1}$$
-
-$$w_j = \frac{1}{n} \sum_{k=1}^{n} r_{jk}, \quad \text{dengan } \sum_{j=1}^{n} w_j = 1 \tag{2}$$
-
-Pada Persamaan (1) dan Persamaan (2), $r_{jk}$ menyatakan elemen ternormalisasi pada baris ke-$j$ kolom ke-$k$, $a_{jk}$ adalah nilai perbandingan kriteria ke-$j$ terhadap kriteria ke-$k$, dan $w_j$ merupakan bobot prioritas kriteria ke-$j$.
-
-**Tahap 4 (Uji Konsistensi Saaty dan Titik Potong Metodologis):**  
-Koherensi logika penilaian matriks $A$ diverifikasi melalui nilai eigen maksimum ($\lambda_{\max}$), *Consistency Index* ($CI$), dan *Consistency Ratio* ($CR$) yang berturut-turut dihitung melalui Persamaan (3), Persamaan (4), dan Persamaan (5) [16], [17].
-
-$$\lambda_{\max} = \frac{1}{n} \sum_{j=1}^{n} \frac{(A \cdot w)_j}{w_j} \tag{3}$$
-
-$$CI = \frac{\lambda_{\max} - n}{n - 1} \tag{4}$$
-
-$$CR = \frac{CI}{RI} \tag{5}$$
-
-Pada Persamaan (3) hingga Persamaan (5), $(A \cdot w)_j$ menyatakan elemen ke-$j$ dari hasil perkalian matriks $A$ terhadap vektor bobot $w$, sedangkan $RI$ adalah *Random Index* standar Saaty yang bernilai $1{,}24$ untuk matriks berordo $n = 6$ [17]. Analisis Monte Carlo terbaru membuktikan bahwa diskretisasi skala 1–9 secara alami menimbulkan galat pembulatan kecil pada matriks berordo $n = 6$, dan *Saaty's Index* dengan batas toleransi $CR \le 0{,}10$ tetap menjadi ukuran konsistensi yang paling proporsional dibanding indeks alternatif yang terlalu restriktif [16]. Jika $CR \le 0{,}10$ terpenuhi, proses AHP dihentikan tepat pada titik potong metodologis agar penilaian alternatif tidak terkontaminasi ketergantungan antaralternatif [12].
-
-**Tahap 5 dan Tahap 6 (Kalibrasi Eksponen dan Komputasi Weighted Product):**  
-Bobot prioritas $w_j$ yang telah teruji konsisten langsung dikonversi menjadi pangkat eksponen $W_j^*$ pada algoritma WP sesuai sifat atribut kriteria melalui Persamaan (6) [9], [11].
-
-$$W_j^* = \begin{cases} +w_j, & \text{jika kriteria } j \text{ bersifat keuntungan (benefit)} \\ -w_j, & \text{jika kriteria } j \text{ bersifat biaya (cost)} \end{cases} \tag{6}$$
-
-Selanjutnya, skor preferensi absolut setiap alternatif ($S_i$) dihitung melalui perkalian eksponensial seluruh nilai kinerja terhadap pangkat bobotnya pada Persamaan (7), lalu dinormalisasi menjadi preferensi relatif ($V_i$) melalui Persamaan (8) [9], [11].
-
-$$S_i = \prod_{j=1}^{n} (x_{ij})^{W_j^*} \quad \forall i \in \{1, 2, \dots, m\} \tag{7}$$
-
-$$V_i = \frac{S_i}{\sum_{k=1}^{m} S_k}, \quad \text{dengan } \sum_{i=1}^{m} V_i = 1 \tag{8}$$
-
-Pada Persamaan (7) dan Persamaan (8), $x_{ij}$ adalah nilai kinerja alternatif ke-$i$ pada kriteria ke-$j$, $S_i$ menyatakan preferensi absolut alternatif ke-$i$, dan $V_i$ merupakan preferensi relatif yang diurutkan dari nilai tertinggi ke terendah untuk menetapkan rekomendasi lokasi utama.
-
-**Tahap 7 (Evaluasi Stabilitas *Rank Reversal* Berbasis IDCG/NDCG dan Analisis Sensitivitas):**  
-Ketahanan model WP terhadap anomali *rank reversal* dianalisis secara aljabar melalui rasio preferensi sepasang alternatif $A_a$ dan $A_b$ pada Persamaan (9) [13].
-
-$$\frac{S_a}{S_b} = \frac{\prod_{j=1}^{n} (x_{aj})^{W_j^*}}{\prod_{j=1}^{n} (x_{bj})^{W_j^*}} = \prod_{j=1}^{n} \left( \frac{x_{aj}}{x_{bj}} \right)^{W_j^*} \tag{9}$$
-
-Persamaan (9) memperlihatkan bahwa perbandingan relatif antara $A_a$ dan $A_b$ murni ditentukan oleh kinerja intrinsik kedua lokasi tersebut tanpa melibatkan alternatif lain, sehingga memenuhi aksioma *Independence of Irrelevant Alternatives* (IIA). Untuk memverifikasi ketahanan urutan peringkat secara kuantitatif saat alternatif baru ditambahkan atau alternatif lama dihapus, digunakan metrik *Discounted Cumulative Gain* (DCG), *Ideal Discounted Cumulative Gain* (IDCG), dan *Normalized Discounted Cumulative Gain* (NDCG) pada Persamaan (10), Persamaan (11), dan Persamaan (12).
-
-$$\text{DCG}_k = \sum_{r=1}^{k} \frac{2^{\text{rel}_r} - 1}{\log_2(r + 1)} \tag{10}$$
-
-$$\text{IDCG}_k = \sum_{r=1}^{k} \frac{2^{\text{rel}_r^*} - 1}{\log_2(r + 1)} \tag{11}$$
-
-$$\text{NDCG}_k = \frac{\text{DCG}_k}{\text{IDCG}_k} \tag{12}$$
-
-Pada Persamaan (10) hingga Persamaan (12), $k$ menyatakan jumlah alternatif asli yang dievaluasi, $r$ adalah posisi peringkat hasil pengujian, $\text{rel}_r$ adalah skor relevansi bertingkat dari alternatif yang menempati posisi ke-$r$, dan $\text{rel}_r^*$ adalah skor relevansi pada urutan ideal *baseline* (diurutkan menurun dari $\text{rel} = 5$ untuk peringkat pertama hingga $\text{rel} = 1$ untuk peringkat kelima). Nilai $\text{NDCG}_k = 1{,}0000$ menandakan urutan peringkat terjaga sempurna tanpa *rank reversal*, sedangkan penurunan di bawah $1{,}0000$ mengukur besaran distorsi peringkat akibat pertukaran posisi. Selain uji *rank reversal*, ketangguhan model terhadap perubahan preferensi pembobotan diuji melalui analisis sensitivitas multi-skenario dengan memvariasikan bobot kriteria dominan sambil menskalakan ulang bobot lainnya secara proporsional [8], [14], [15], [17].
 
 ---
 
@@ -279,7 +244,7 @@ Tabel 8. Nilai Preferensi Relatif Vektor $V_i$ dan Pemeringkatan Akhir Kandidat 
 | 5 | $A_3$ | Kawasan Babarsari | 0,9987 | 0,1350 | 13,50% | Alternatif Kelima |
 | **Total** | **-** | **Akumulasi Parameter** | **7,3989** | **1,0000** | **100,00%** | **-** |
 
-Perbandingan visual perolehan nilai preferensi relatif Vektor $V_i$ kelima kandidat lokasi disajikan secara berjenjang pada Gambar 3.
+Perbandingan visual perolehan nilai preferensi relatif Vektor $V_i$ kelima kandidat lokasi disajikan secara berjenjang pada Gambar 2.
 
 ```mermaid
 xychart-beta
@@ -289,9 +254,9 @@ xychart-beta
     bar [0.2282, 0.2268, 0.2180, 0.1921, 0.1350]
 ```
 
-Gambar 3. Grafik Perbandingan Nilai Preferensi Relatif Vektor $V_i$ Kandidat Lokasi
+Gambar 2. Grafik Perbandingan Nilai Preferensi Relatif Vektor $V_i$ Kandidat Lokasi
 
-Berdasarkan Tabel 8 dan Gambar 3, Sinduadi ($A_1$) menempati peringkat pertama dengan nilai $V_1 = 0{,}2282$ (22,82%), unggul sangat tipis atas Malioboro Mall ($A_5$) di peringkat kedua dengan $V_5 = 0{,}2268$ (22,68%). Margin keunggulan antara peringkat pertama dan kedua hanya sebesar $\Delta V = 0{,}0014$ (0,14%). Posisi berikutnya berturut-turut ditempati oleh Jalan Taman Siswa ($A_4$) sebesar 0,2180 (21,80%), Koridor Jalan Magelang ($A_2$) sebesar 0,1921 (19,21%), dan Kawasan Babarsari ($A_3$) di peringkat terakhir sebesar 0,1350 (13,50%).
+Berdasarkan Tabel 8 dan Gambar 2, Sinduadi ($A_1$) menempati peringkat pertama dengan nilai $V_1 = 0{,}2282$ (22,82%), unggul sangat tipis atas Malioboro Mall ($A_5$) di peringkat kedua dengan $V_5 = 0{,}2268$ (22,68%). Margin keunggulan antara peringkat pertama dan kedua hanya sebesar $\Delta V = 0{,}0014$ (0,14%). Posisi berikutnya berturut-turut ditempati oleh Jalan Taman Siswa ($A_4$) sebesar 0,2180 (21,80%), Koridor Jalan Magelang ($A_2$) sebesar 0,1921 (19,21%), dan Kawasan Babarsari ($A_3$) di peringkat terakhir sebesar 0,1350 (13,50%).
 
 ### 3.3. Evaluasi
 
@@ -305,9 +270,21 @@ Pola ini sejalan dengan temuan pemilihan lokasi ritel modern di Kabupaten Sleman
 
 #### 3.3.2. Simulasi Uji *Rank Reversal* (Aksioma IIA) dengan DCG, IDCG, dan NDCG
 
-Untuk menguji apakah model hibrida AHP-WP benar-benar bebas dari anomali *rank reversal* ketika himpunan alternatif berubah, pengujian dijalankan menggunakan empat skenario penambahan dan penghapusan alternatif. Secara aljabar berdasarkan Persamaan (9), rasio preferensi antara kandidat peringkat pertama dan kedua bernilai $S_1 / S_5 = 1{,}6885 / 1{,}6777 = 1{,}0064 > 1$. Karena rumus perkalian eksponensial WP tidak melibatkan elemen alternatif ketiga, rasio tersebut secara teoretis harus tetap konstan pada seluruh skenario perubahan gugus alternatif [13].
+Untuk menguji apakah model hibrida AHP-WP benar-benar bebas dari anomali *rank reversal* ketika himpunan alternatif berubah, pengujian dijalankan menggunakan empat skenario penambahan dan penghapusan alternatif. Secara aljabar, ketahanan WP terhadap *rank reversal* dibuktikan melalui rasio preferensi sepasang alternatif $A_a$ dan $A_b$ pada Persamaan (9) [13].
 
-Stabilitas urutan peringkat diukur secara kuantitatif melalui Persamaan (10) sampai Persamaan (12) dengan skor relevansi bertingkat dari urutan ideal *baseline*: $\text{rel}(A_1)=5$, $\text{rel}(A_5)=4$, $\text{rel}(A_4)=3$, $\text{rel}(A_2)=2$, dan $\text{rel}(A_3)=1$. Nilai acuan ideal menghasilkan $\text{IDCG}@5 = 45{,}6428$ untuk lima alternatif asli dan $\text{IDCG}@4 = 45{,}2560$ ketika $A_3$ dihapus. Hasil simulasi pada empat skenario uji beserta pembanding metode aditif *Simple Additive Weighting* (SAW) pada bobot dan data yang sama disajikan pada Tabel 9.
+$$\frac{S_a}{S_b} = \frac{\prod_{j=1}^{n} (x_{aj})^{W_j^*}}{\prod_{j=1}^{n} (x_{bj})^{W_j^*}} = \prod_{j=1}^{n} \left( \frac{x_{aj}}{x_{bj}} \right)^{W_j^*} \tag{9}$$
+
+Berdasarkan Persamaan (9), rasio preferensi antara kandidat peringkat pertama dan kedua bernilai $S_1 / S_5 = 1{,}6885 / 1{,}6777 = 1{,}0064 > 1$. Karena rumus perkalian eksponensial WP tidak melibatkan elemen alternatif ketiga, rasio tersebut secara teoretis harus tetap konstan pada seluruh skenario perubahan gugus alternatif [13].
+
+Stabilitas urutan peringkat diukur secara kuantitatif melalui metrik *Discounted Cumulative Gain* (DCG), *Ideal DCG* (IDCG), dan *Normalized DCG* (NDCG) pada Persamaan (10), Persamaan (11), dan Persamaan (12).
+
+$$\text{DCG}_k = \sum_{r=1}^{k} \frac{2^{\text{rel}_r} - 1}{\log_2(r + 1)} \tag{10}$$
+
+$$\text{IDCG}_k = \sum_{r=1}^{k} \frac{2^{\text{rel}_r^*} - 1}{\log_2(r + 1)} \tag{11}$$
+
+$$\text{NDCG}_k = \frac{\text{DCG}_k}{\text{IDCG}_k} \tag{12}$$
+
+Dengan skor relevansi bertingkat dari urutan ideal *baseline* ($\text{rel}(A_1)=5$, $\text{rel}(A_5)=4$, $\text{rel}(A_4)=3$, $\text{rel}(A_2)=2$, dan $\text{rel}(A_3)=1$), nilai acuan ideal menghasilkan $\text{IDCG}@5 = 45{,}6428$ untuk lima alternatif asli dan $\text{IDCG}@4 = 45{,}2560$ ketika $A_3$ dihapus. Nilai $\text{NDCG}_k = 1{,}0000$ menandakan urutan peringkat terjaga sempurna tanpa *rank reversal*. Hasil simulasi pada empat skenario uji beserta pembanding metode aditif *Simple Additive Weighting* (SAW) pada bobot dan data yang sama disajikan pada Tabel 9.
 
 Tabel 9. Hasil Simulasi Uji *Rank Reversal* (Aksioma IIA) Menggunakan Metrik DCG, IDCG, dan NDCG
 
